@@ -4,7 +4,11 @@ const model = require('../models/employer');
 
 exports.signUp = function (req, res, data){
     repository.add(data, function(err){
-        if (err) {res.json ({err: err, message: 'error, book could not be added'});} else {
-        res.json ({message: 'user created successfully'});}
+        if (err) {
+            res.json ({err: err, message: 'error, employer could not be added'});
+        } 
+        else {
+            res.json ({message: 'employer created successfully'});
+        }
     });
 }
