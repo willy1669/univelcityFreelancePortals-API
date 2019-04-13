@@ -7,6 +7,7 @@ const app = express();
 
 const graduateRouter = require('./routers/graduateRouter');
 const employerRouter = require('./routers/employerRouter');
+const gigsRouter = require('./routers/gigsRouter');
 
 const port = process.env.PORT || 4000
 app.listen(port, () => {
@@ -33,5 +34,5 @@ mongoose.connect('mongodb://localhost:27017/freelancePortal', { useNewUrlParser:
 //Routes which should handle requests
 app.use('/graduate', graduateRouter);
 app.use('/employer', employerRouter);
-
+app.use('./gig', gigsRouter);
 module.exports = app;
