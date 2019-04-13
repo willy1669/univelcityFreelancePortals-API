@@ -5,8 +5,8 @@ const db = require('./config/keys').mongoURI;  //db config
 
 const app = express();
 
-var graduateRouter = require('./routers/graduateRouter');
-var employerRouter = require('./routers/employerRouter')
+const graduateRouter = require('./routers/graduateRouter');
+const employerRouter = require('./routers/employerRouter');
 
 const port = process.env.PORT || 4000
 app.listen(port, () => {
@@ -18,7 +18,7 @@ app.use(bodyparser.json())
 app.use(express.urlencoded({ extended: false }));
 
 //enable CORS
-app.use(function(req, res, next) {
+app.use((req, res, next) => {
     res.header("Access-Control-Allow-Methods: POST, GET");
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -27,8 +27,8 @@ app.use(function(req, res, next) {
 
 //connecting to mongoose database
 mongoose.Promise = global.Promise;
-//mongoose.connect('mongodb://localhost:27017/freelancePortal', { useNewUrlParser: true });
-mongoose.connect(db, {useNewUrlParser: true }).then(() => console.log('Mongo db connected'));
+mongoose.connect('mongodb://localhost:27017/freelancePortal', { useNewUrlParser: true });
+// mongoose.connect(db, {useNewUrlParser: true }).then(() => console.log('Mongo db connected'));
 
 //Routes which should handle requests
 app.use('/graduate', graduateRouter);
