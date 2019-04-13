@@ -54,7 +54,7 @@ passport.deserializeUser(function(id, done) {
     });
 });
 
-exports.loginUser = function (req, res) {
+exports.loginUser = function (req, res,) {
     passport.authenticate('login', {
     successRedirect: '/users', 
     failureRedirect: '/login'
