@@ -12,3 +12,10 @@ exports.signUp = function (req, res, data){
         }
     });
 }
+
+exports.getEmployerById = function (req, res, id){
+    repository.getById(id, function (err, employer){
+        if (err) res.json ({err: err, message: 'error, could not get book by id'});
+        res.json ({Employer: employer});
+    });
+}
