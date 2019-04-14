@@ -3,10 +3,11 @@ const employer =require('../models/employer');
 const category = require('../models/category');
 const service = require('../services/gigsService');
 
-exports.addGigs= (req, res) => {
+exports.addGigs = (req, res) => {
 const data = {
     employer: req.body.employer,
     jobDescription: req.body.jobDescription,
+    time: Date.now()
 }
     try {
         return service.addGigs(req, res, data)
@@ -15,3 +16,5 @@ const data = {
         console.log("Error: " +exception);
     }
 } 
+
+
