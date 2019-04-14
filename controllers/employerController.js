@@ -37,4 +37,17 @@ exports.employerSignUp = (req, res) => {
 
 exports.getEmployerById = (req, res) => {
     var id = req.params.id;
+    try {
+        return service.getEmployerById(req, res, id);
+    } catch (exception) {
+        console.log("Error : "+exception);
+    }
+}
+
+exports.getEmployers = (req, res,) => {
+    try {
+        return service.getAllEmployers(req, res, {});
+    } catch(exception) {
+        console.log("Error : "+exception);
+    }
 }
