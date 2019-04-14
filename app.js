@@ -34,5 +34,5 @@ mongoose.connect('mongodb://localhost:27017/freelancePortal', { useNewUrlParser:
 //Routes which should handle requests
 app.use('/graduate', graduateRouter);
 app.use('/employer', employerRouter);
-app.use('./gig', gigsRouter);
+app.use('/gig', gigsRouter);
 module.exports = app;
