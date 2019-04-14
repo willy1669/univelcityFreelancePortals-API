@@ -1,7 +1,9 @@
+const secret = process.env.SECRET_KEY;
 const employer = require('../models/employer');
 const joi = require('joi');
 const passwordHash = require('password-hash');
 const service = require('../services/employerService');
+const jwt = require('jsonwebtoken');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 
@@ -95,16 +97,16 @@ exports.loginUser = function (req, res) {
         console.log(exception);
     }
 }
-// exports.employerPostGig = (req, res) => {
-//     var data = {
-//         gig: [],
-//         employer: req.body.employer,
-//         time: Date.now()
-//     }
-//     try {
-//         return service.addGigs
-//     }   catch(exception) {
-//         console.log("Error : "+exception);
-//     }
+exports.employerPostGig = (req, res) => {
+    var data = {
+        gigs: [],
+        employer: req.body.employer,
+        time: Date.now()
+    }
+    try {
+        return service.employerAddGig(req, res, data)
+    }   catch(exception) {
+        console.log("Error : "+exception);
+    }
 
-// }
+}
