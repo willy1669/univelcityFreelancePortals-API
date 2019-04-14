@@ -1,10 +1,13 @@
 const mongoose = require ('mongoose');
 
 const employerSchema = mongoose.Schema({
-    user: {
+    employerName: String,
+    email: String,
+    password: String,
+    gigs: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'user'
-    }
+        ref: 'gigs'
+    }]
 })
 
 module.exports = mongoose.model('employer', employerSchema);
