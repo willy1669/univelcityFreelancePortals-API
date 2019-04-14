@@ -110,3 +110,8 @@ exports.employerPostGig = (req, res) => {
     }
 
 }
+
+exports.getEmployerById = function (req, res){
+    var id = req.params.id;
+    return service.getEmployerById(req, res, id);
+}

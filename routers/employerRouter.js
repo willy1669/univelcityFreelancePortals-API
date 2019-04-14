@@ -6,6 +6,8 @@ const employerController = require('../controllers/employerController');
 router.post('/signUp', employerController.employerSignUp);
 router.get('/employer/:id', employerController.getEmployerById);
 router.get('/', employerController.getEmployers);
+router.post('/addGig', employerController.employerPostGig);
+router.post('/login', employerController.loginUser);
 
 
 module.exports = router;
