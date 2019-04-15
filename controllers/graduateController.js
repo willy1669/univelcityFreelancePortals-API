@@ -1,9 +1,11 @@
-const model = require('../models/graduate');
+const secret = process.env.SECRET_KEY;
+const graduate = require('../models/graduate');
 const joi = require('joi');
 const passwordHash = require('password-hash');
 const service = require('../services/graduateService');
 const LocalStrategy = require('passport-local').Strategy;
 const passport = require('passport');
+const jwt = require('jsonwebtoken');
 
 //Define schema for validating user input
 const schema = joi.object().keys({
@@ -30,7 +32,7 @@ exports.graduateSignUp = (req, res) => {
             else {
                 const hashPassword = passwordHash.generate(data.password);    //encrypt user password
                 data.password = hashPassword;
-                console.log(data.password);
+                //console.log(data.password);
                 return service.signUp(req, res, data);
             }
         }
@@ -49,7 +51,7 @@ passport.serializeUser(function(user, done){
 });
 
 passport.deserializeUser(function(id, done) {
-    User.findById(id, function(err, user) {
+    graduate.findById(id, function(err, user) {
         done(err, user);
     });
 });
@@ -61,7 +63,7 @@ exports.loginUser = function (req, res,) {
     });
     try {
         passport.use ('login', new LocalStrategy(
-            User.findOne({email: req.body.email}, function (err, user) {
+            graduate.findOne({email: req.body.email}, function (err, user) {
                 if (err) {
                     res.json({err: err});
                 }
