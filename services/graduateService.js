@@ -4,7 +4,7 @@ var model = require('../models/graduate');
 
 exports.signUp = function (req, res, data){
     repository.add(data, function(err){
-        if (err) {res.json ({err: err, message: 'error, book could not be added'});} else {
+        if (err) {res.json ({err: err, message: 'error, user could not be added'});} else {
         res.json ({message: 'user created successfully'});}
     });
 }
