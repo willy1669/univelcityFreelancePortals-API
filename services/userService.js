@@ -1,4 +1,4 @@
-var repository = require('../Repositories/userRepository');
+var repository = require('../repositories/userRepository');
 
 exports.addUser = function(req, res, data){
     repository.add(data, function(err, user){
