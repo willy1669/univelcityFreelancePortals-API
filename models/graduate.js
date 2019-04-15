@@ -1,10 +1,10 @@
 const mongoose = require ('mongoose');
 
 const graduateSchema = mongoose.Schema({
-    user: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'user'
-    },
+    firstname: String,
+    lastname: String,
+    email: String,
+    password: String,
     profileImg: String,
     profileImgId: String,
     rating:Number,
