@@ -17,4 +17,15 @@ const data = {
     }
 } 
 
+exports.getGigs = (req, res,) => {
+    try {
+        return service.getAllGigs(req, res, {});
+    } catch(exception) {
+        console.log("Error : "+exception);
+    }
+}
 
+exports.getGigById = function (req, res){
+    var id = req.params.id;
+    return service.getGigById(req, res, id);
+}
