@@ -29,8 +29,10 @@ app.use((req, res, next) => {
 
 //connecting to mongoose database
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost:27017/freelancePortal', { useNewUrlParser: true });
-// mongoose.connect(db, {useNewUrlParser: true }).then(() => console.log('Mongo db connected'));
+//mongoose.connect('mongodb://localhost:27017/freelancePortal', { useNewUrlParser: true })
+mongoose.connect('mongodb://willy1669:(.)3no12@ds153096.mlab.com:53096/freelance-portal', {useNewUrlParser: true })
+.then(() => console.log('Mongo db connected'))
+.catch(err => console.log(err));
 
 //Routes which should handle requests
 app.use('/graduate', graduateRouter);
