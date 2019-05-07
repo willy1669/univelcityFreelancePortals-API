@@ -9,6 +9,7 @@ const gigsSchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'category'
     },
+    title: String,
     jobDescription: String,
     time: Date
 })
