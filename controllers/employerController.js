@@ -97,21 +97,3 @@ exports.loginUser = function (req, res) {
         console.log(exception);
     }
 }
-exports.employerPostGig = (req, res) => {
-    var data = {
-        gigs: [],
-        employer: req.body.employer,
-        time: Date.now()
-    }
-    try {
-        return service.employerAddGig(req, res, data)
-    }   catch(exception) {
-        console.log("Error : "+exception);
-    }
-
-}
-
-exports.getEmployerById = function (req, res){
-    var id = req.params.id;
-    return service.getEmployerById(req, res, id);
-}
