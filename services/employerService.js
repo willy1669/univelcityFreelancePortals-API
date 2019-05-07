@@ -30,21 +30,3 @@ exports.getAllEmployers = (req, res, options) => {
         res.json(Employers);
     });
 }
-
-exports.employerAddGig = (req, res, data) => {
-    repository.add(data, (err, gig) => {
-        if (err) res.json({err: err, message: 'error, gg could not be add'})
-        else {
-            repository.getById(data.employer, (err, employer) => {
-                console.log(data.employer)
-                console.log(data.gigs)
-                console.log(gig._id)
-            data.gigs.push(gig._id)
-            employer.save()
-           // data.save()        
-           res.json(data)        
-            })
-        }
-
-    })
-}
