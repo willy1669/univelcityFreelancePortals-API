@@ -19,7 +19,6 @@ exports.employerSignUp = (req, res) => {
         employerName: req.body.employerName,
         email: req.body.email,
         password: req.body.password,
-        gigs:[]
     }
     // validating the employer input
     joi.validate({employerName: data.employerName, email: data.email, password: data.password}, schema, function (err) {
