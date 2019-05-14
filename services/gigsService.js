@@ -14,7 +14,7 @@ exports.addGigs = (req, res, data, employer) => {
         else {
             repository.add(data, function(oga) {
                 console.log(data)
-                res.json(data)
+                res.json(data, {message: 'gig created successfully'})
             })
         }
     }).populate(gigs)
@@ -44,12 +44,3 @@ exports.searchByTitle = function(req, res, title){
     })
 }
 
-exports.searchByTitle = function(req, res, title){
-    model.find({title: { $regex: title, $options: 'gi' }}, function(err, healthKits){
-        if (err){
-            res.json({err: err, message: 'error, search failed'});
-        } else {
-            res.json(healthKits);
-        }
-    })
-}

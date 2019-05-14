@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 
 const categorySchema = mongoose.Schema({
-    gigs: [{
-        type: mongoose.Schema.Types.ObjectId,
+    gigs: {
+        tpe: mongoose.Schema.Types.ObjectId,
         ref: 'gigs'
-    }],
+    },
     categoryName: String
 })
 
