@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const categorySchema = mongoose.Schema({
-    gigs: {
+    gigs : {
         tpe: mongoose.Schema.Types.ObjectId,
         ref: 'gigs'
     },

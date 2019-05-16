@@ -1,6 +1,6 @@
 const model = require('../models/gigs');
 const employer =require('../models/employer');
-const category = require('../models/category');
+//const category = require('../models/category');
 const service = require('../services/gigsService');
 
 exports.addGigs = (req, res) => {
